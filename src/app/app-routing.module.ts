@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'updateordelete/:id',
+    loadChildren: () => import('./updateordelete/updateordelete.module').then( m => m.UpdateordeletePageModule)
   }
 ];
 @NgModule({

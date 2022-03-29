@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Update Data </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">ID</ion-label>
+    <ion-input type="number" [(ngModel)]="npm" value="clear me"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input type="text" [(ngModel)]="name" value="clear me"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Study Program</ion-label>
+    <ion-select [(ngModel)]="studyprogram">
+      <ion-select-option value="Computer">Computer</ion-select-option>
+      <ion-select-option value="Economy">Economy</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Major Academic</ion-label>
+    <ion-select *ngIf="studyprogram === 'Computer'" [(ngModel)]="major">
+      <ion-select-option value="Informatics Engineering"
+        >Informatics Engineering</ion-select-option
+      >
+      <ion-select-option value="Information System"
+        >Information System</ion-select-option
+      >
+    </ion-select>
+    <ion-select *ngIf="studyprogram !== 'Computer'" [(ngModel)]="major">
+      <ion-select-option value="Fund Management"
+        >Fund Management</ion-select-option
+      >
+      <ion-select-option value="Sharia Economy"
+        >Sharia Economy</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Class</ion-label>
+    <ion-input type="text" [(ngModel)]="class" value="clear me"></ion-input>
+  </ion-item>
+  <br />
+  <ion-button
+    type="submit"
+    (click)="submit()"
+    routerLink="/tabs/tab1"
+    routerLinkActive="router-link-active"
+    expand="block"
+    color="primary"
+    >Submit</ion-button
+  >
+</ion-content>
